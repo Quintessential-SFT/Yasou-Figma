@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "jsx": "react",
+    "outDir": "./dist"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.css",
+    "./src/**/*.html",
+    "./src/**/*.svg",
+    "figma.d.ts"
+  ],
+  "compileOnSave": true
+}

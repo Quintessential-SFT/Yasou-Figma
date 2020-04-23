@@ -1,0 +1,10 @@
+{
+  "name": "Yasou",
+  "id": "835158600797781836",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "relaunchButtons": [
+    {"command": "openMeet", "name": "Join Call", "multipleSelection": false}
+  ]
+}

@@ -4,7 +4,7 @@ if (figma.command === 'openMeet') {
     figma.ui.postMessage(name);
 } else {
     const node = figma.currentPage.findOne(node => node.type === "TEXT" && node.characters.indexOf('Open the plugin to join the meeting!') !== -1)
-    let name = node.parent.getPluginData('meetingName');
+    let name = node ? node.parent.getPluginData('meetingName') : undefined;
     if (name && name !== '') {
         figma.showUI(__html__)
         figma.ui.postMessage(name);

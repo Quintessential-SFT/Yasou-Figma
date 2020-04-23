@@ -3,7 +3,7 @@
 <script>
 
     onmessage = (event) => {
-        window.open('https://meet.jit.si/' + event.data.pluginMessage, 'MyWindow', 'width=700,height=500,left=150,top=200,toolbar=0,status=0');
+        window.open('https://meet.jit.si/yasou-' + event.data.pluginMessage, 'MyWindow', 'width=700,height=500,left=150,top=200,toolbar=0,status=0');
         parent.postMessage({pluginMessage: {type: 'cancel'}}, '*')
     }
 </script>

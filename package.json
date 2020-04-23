@@ -4,7 +4,9 @@
   "description": "",
   "main": "code.js",
   "scripts": {
-    "build": "tsc",
+    "webpack:dev": "npx webpack --mode=development --watch",
+    "webpack:prod": "npx webpack --mode=production",
+    "typescript:build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

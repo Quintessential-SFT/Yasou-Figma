@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     onCreate = () => {
-        window.open('https://meet.jit.si/' + this.textbox.value, 'MyWindow', 'width=700,height=500,left=150,top=200,toolbar=0,status=0');
+        window.open('https://meet.jit.si/yasou-' + this.textbox.value, 'MyWindow', 'width=700,height=500,left=150,top=200,toolbar=0,status=0');
         parent.postMessage({pluginMessage: {type: 'create-meeting', meetingName: this.textbox.value}}, '*')
     }
 

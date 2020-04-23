@@ -3,7 +3,14 @@ if (figma.command === 'openMeet') {
     figma.showUI(__html__)
     figma.ui.postMessage(name);
 } else {
-    figma.showUI(__html__)
+    const node = figma.currentPage.findOne(node => node.type === "TEXT" && node.characters.indexOf('Open the plugin to join the meeting!') !== -1)
+    let name = node.parent.getPluginData('meetingName');
+    if (name && name !== '') {
+        figma.showUI(__html__)
+        figma.ui.postMessage(name);
+    } else {
+        figma.showUI(__html__)
+    }
 }
 
 figma.ui.onmessage = async msg => {

@@ -4,6 +4,10 @@ body {
     margin: 20px;
 }
 
+#logo {
+    width: 100px;
+}
+
 button {
     border-radius: 5px;
     background: white;

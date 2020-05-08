@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom'
 import './ui.css'
 
+const generated = require("./generated_svg.svg") as string;
+
 declare function require(path: string): any
 
 class App extends React.Component {
@@ -20,7 +22,13 @@ class App extends React.Component {
             return;
         }
         window.open('https://meet.jit.si/yasou-' + this.textbox.value, 'MyWindow', 'width=700,height=500,left=150,top=200,toolbar=0,status=0');
-        parent.postMessage({pluginMessage: {type: 'create-meeting', meetingName: this.textbox.value}}, '*')
+        parent.postMessage({
+            pluginMessage: {
+                type: 'create-meeting',
+                meetingName: this.textbox.value,
+                img: window.atob(generated.replace('data:image/svg+xml;base64,', ''))
+            }
+        }, '*')
     }
 
     onCancel = () => {
@@ -29,7 +37,7 @@ class App extends React.Component {
 
     render() {
         return <div>
-            <img src={require('./logo.svg')}/>
+            <img id='logo' src={require('./logo.png')}/>
             <h2>Create your meeting!</h2>
             <input ref={this.countRef}/>
             <br/>

@@ -17,9 +17,13 @@ figma.ui.onmessage = async msg => {
     if (msg.type === 'create-meeting') {
         await figma.loadFontAsync({family: 'Monaco', style: 'Regular'})
         const nodes = []
-        const rect = figma.createNodeFromSvg(msg.img);
-        let node = figma.group(rect.children, rect);
-        rect.appendChild(node);
+        const rect = figma.createFrame();
+        let paint: ImagePaint = {
+            imageHash: figma.createImage(msg.img).hash,
+            scaleMode: "FIT",
+            type: "IMAGE"
+        }
+        rect.fills = [paint]
         rect.resize(1200, 600);
         (rect as BaseNode).setRelaunchData(({openMeet: msg.meetingName}));
         (rect as BaseNode).setPluginData('meetingName', msg.meetingName);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom'
 import './ui.css'
 
-const generated = require("./generated_svg.svg") as string;
+const generated = require("./generated.png") as string;
 
 declare function require(path: string): any
 
@@ -26,9 +26,19 @@ class App extends React.Component {
             pluginMessage: {
                 type: 'create-meeting',
                 meetingName: this.textbox.value,
-                img: window.atob(generated.replace('data:image/svg+xml;base64,', ''))
+                img: this._base64ToArrayBuffer()
             }
         }, '*')
+    }
+
+    _base64ToArrayBuffer = () => {
+        var binary_string = window.atob(generated.replace('data:image/png;base64,', ''));
+        var len = binary_string.length;
+        var bytes = new Uint8Array(len);
+        for (var i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
     }
 
     onCancel = () => {

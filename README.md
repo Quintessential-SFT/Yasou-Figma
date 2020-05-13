@@ -1,4 +1,4 @@
-# Yasou Figma plugin (STATUS: Under Figma Review)
+# Yasou Figma plugin
 
 This plugin creates Jitsi meets for you right from the Figma UI.
 
